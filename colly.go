@@ -46,3 +46,13 @@ c.OnHTML("#items", func(e *colly.HTMLElement) {
         }
     })
 })
+dom, _ := goquery.NewDocument(htmlData)
+dom.Find("a").Siblings().Each(func (i int, s *goquery.Selection)  {
+    fmt.Printf("%d, Sibling text: %s\n", i, s.Test())
+})
+anchor.ParentsUntil("~").Find("item").Text()
+c.OnHTML("div",func(e *colly.HTMLElement){
+    // Goquery selection of the HTMLElement is in e.DOM
+    goquerySelection := e.DOM
+    fmt.Println(goquerySelection.Find(" space").Children().Text())
+})
