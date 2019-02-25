@@ -36,3 +36,13 @@ c.OnRequest(func(r *colly.Request) {
 c.OnResponse(func(r *colly.Response) {
     fmt.Println(r.Body)
 })
+c.OnHTML("#items", func(e *colly.HTMLElement) {
+    fmt.Println(e.ChildText("item"))
+})
+c.OnHTML("#items", func(e *colly.HTMLElement) {
+    e.ForEach("item", func(_ int, elem *colly.HTMLElement) {
+        if strings.Contains(elem.Text, "item") {
+            fmt.Println(elem.Text)
+        }
+    })
+})
