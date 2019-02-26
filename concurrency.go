@@ -1,5 +1,5 @@
 package main
-// 
+//
 // /*
 // Open a series of urls.
 //

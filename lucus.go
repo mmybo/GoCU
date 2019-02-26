@@ -1,6 +1,5 @@
-// as our scraper will only use one file this will be our main package
 package main
-// 
+//
 // // importing dependencies
 // import (
 //     "encoding/json"
