@@ -5,6 +5,7 @@ import (
     "github.com/yhat/scrape"
     "golang.org/x/net/html"
     "golang.org/x/net/html/atom"
+    "strings"
     // "fmt"
 	// "net/http"
     // "time"
@@ -15,12 +16,17 @@ import (
     //"github.com/labstack/echo/middleware"
 )
 type Item struct {
+    Item string `json:"item"`
     URL string `json:"URL"`
 }
-type ItemArray struct {
-    items string
-    urls string
-}
+// type Item struct {
+//     name string `json:"name"`
+//     URL string `json:"URL"`
+// }
+// type ItemArray struct {
+//     items string
+//     urls string
+// }
 // func crawler(u string) string {
 //     resp, err := http.Get(u)
 //     if err != nil {
@@ -50,7 +56,7 @@ func scraper(c echo.Context) error {
     u := Item{}
     err := c.Bind(&u)
     //u := c.Param("URL")
-    fmt.Printf(u.URL)
+    fmt.Printf(u.Item)
     // dataType := c.Param("data")
     // if dataType == "json" {
     //     return c.JSON(http.StatusOK, crawler(u))
@@ -72,14 +78,17 @@ func scraper(c echo.Context) error {
     			return scrape.Attr(n.Parent, "class") == "result-info"
     		}
     		return false
-    	}
+    }
     articles := scrape.FindAll(root, matcher) //<--change to find, with item matching
     //iarray := [10]ItemArray
     var s [][]string
 	for i, article := range articles {
 		fmt.Printf("%2d %s (%s)\n", i, scrape.Text(article), scrape.Attr(article, "href"))
-        sa := []string{scrape.Text(article),scrape.Attr(article, "href")}
-        s = append(s, sa)
+        sps := " " + u.Item + " "
+        if strings.Contains(scrape.Text(article),sps) {
+            sa := []string{scrape.Text(article),scrape.Attr(article, "href")}
+            s = append(s, sa)
+        }
         //iarray[i] = ItemArray{scrape.Text(article),scrape.Attr(article, "href")}
 		//go deeper, in future
         // for n := range scrape.Attr(article,"href") {
@@ -87,6 +96,10 @@ func scraper(c echo.Context) error {
         // }
     }
     //ia := ItemArray{"Stringy","Stringycheese"}
+    fmt.Printf("LOOK AT ME!")
+    fmt.Printf(u.Item)
+    fmt.Printf("I'M MISTY MEESEEKS!!")
+    fmt.Printf(u.URL)
     return c.JSON(http.StatusOK, map[string][][]string{
             "Item List": s,
     })
