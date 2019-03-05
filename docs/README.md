@@ -27,10 +27,15 @@
 >But you probably already know that!
 
 >Next install the dependencies:
+
 >go get github.com/yhat/scrape
+
 >go get golang.org/x/net/html
+
 >go get golang.org/x/net/html/atom
+
 >go get github.com/labstack/echo
+
 >And that's it! After that, just build and run! (go build, and go run main.go)
 
 >Run it locally, or deploy your own!
