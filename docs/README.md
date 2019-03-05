@@ -43,6 +43,9 @@
 # More info
 
 >GoCU is deployed here: https://gocu.herokuapp.com/
+
 >Github repo: https://github.com/mmybo/GoCU
+
 >My LinkedIn: https://www.linkedin.com/mynetwork/
+
 >My Portfolio: https://www.makeschool.com/portfolio/Jaeson-Booker
