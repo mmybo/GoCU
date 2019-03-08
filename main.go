@@ -1,4 +1,3 @@
-package main
 // A Go Crawler Utility API (GoCU)
 
 // Simply make a post request using JSON, with the following format:
@@ -33,6 +32,8 @@ package main
 // And that's it! After that, just build and run! (go build, and go run main.go)
 
 // Run it locally, or deploy your own!
+
+package main
 import (
     "fmt"
     "net/http"
