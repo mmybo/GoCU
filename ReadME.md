@@ -21,7 +21,9 @@ And GoCU will return all pages containing that word, and the links to them:
     }
 
 Docs page can be found here: https://mmybo.github.io/GoCU/
+
 Deployed: https://gocu.herokuapp.com/
+
 Also fun: an article about writing Go: https://medium.com/@jaesonbooker/learning-go-the-language-and-the-game-7373c47ae8e6
 
 GoCU is open source, so you can clone it and make it even more powerful!
