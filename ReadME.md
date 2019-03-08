@@ -1,5 +1,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/mmybo/GoCU)](https://goreportcard.com/report/github.com/mmybo/GoCU)
 
+[![GoDoc](https://godoc.org/github.com/mmybo/GoCU?status.svg)](https://godoc.org/github.com/mmybo/GoCU)
+
 A Go Crawler Utility API (GoCU)
 
 Simply make a post request using JSON, with the following format:
